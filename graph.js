@@ -68,14 +68,21 @@
             vertices:{},
             references:{},
             addVertex:function(elt,xC,yC){
-                if (typeofthis.vertices.elt === "undefined") {
+                if (typeof this.vertices.elt === "undefined") {
                     newV = createVertex(elt,xC,yC);
                     this.references.elt = newV; // O(1) reference
                     this.vertices.elt = {}; // new empty object
                     console.log('Success');
                     return newV;
+                } else {
+                    console.log("This vertex already exists!");
+                    return null; // just return something
                 }
+            },
+            addEdge:function(name,v1,v2,value){
+                if (typeof this.vertex)
             }
+
         }
     }
     function getRandomNumber(min, max) {
