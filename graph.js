@@ -69,7 +69,7 @@
             references:{},
             addVertex:function(elt,xC,yC){
                 if (typeof this.vertices.elt === "undefined") {
-                    newV = createVertex(elt,xC,yC);
+                    var newV = createVertex(elt,xC,yC);
                     this.references.elt = newV; // O(1) reference
                     this.vertices.elt = {}; // new empty object
                     console.log('Success');
@@ -80,7 +80,40 @@
                 }
             },
             addEdge:function(name,v1,v2,value){
-                if (typeof this.vertex)
+                if (typeof this.vertices.elt !== "undefine"){
+                    var newE = createEdge(name,v1,v2,value);
+                    this.vertices.v1.v2 = newE;
+                    this.vertices.v2.v1 = newE;
+                    return;
+                } else {
+                    console.log("Error! vertices do not exist in the graph!")
+                    return null;
+                }
+            },
+            removeVertex: function(x){
+                var name = x;
+                var array = [];
+                //push all connected vertices into the
+                for (var key in this.vertices.x){
+                    array.push(this.vertices.x[key]);
+                }
+                for (var item in array){
+                    delete this.vertices[item][x] // remove opposite vertices
+                }
+                delete this.vertices[x] // finally remove x
+                console.log("Successfully removed ", x)// confirm removal
+            },
+            getEdge: function(x,y){
+                return this.vertices[x][y];
+            },
+            getEdges: function(v){
+                var lst = [];
+                var objectList = [];
+                for (var key in Object.keys(this.vertices[v]){
+                    lst.push(this.vertices[v][key]);
+                }
+                return lst;
+                
             }
 
         }
