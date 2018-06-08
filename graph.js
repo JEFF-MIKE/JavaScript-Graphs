@@ -3,8 +3,8 @@
     var k = vertexLabelList.length;
     var edgeLabelList = ["1","2","3","4","5","6","7"]; // 7 edges
     var p = edgeLabelList.length;
-    var vertexContainer = [] // holds the Vertices
-    var edgeContainer = [] // holds the Edges.
+    var vertexContainer = []; // holds the Vertices
+    var edgeContainer = []; // holds the Edges.
     // General function create a vertex. can be used both inside
     // and outside the graph object 
     function createVertex(iLabel,iX,iY){
@@ -46,15 +46,8 @@
     };
     // for loop to make the edge objects
     for (var i = 0;i<p;i++){
-        edgeContainer.push(createEdge(edgeLabelList[i],vertexLabelList[getRandomNumber(1,7)],vertexLabelList[getRandomNumber(1,7)],getRandomNumber(1,200)))
+        edgeContainer.push(createEdge(edgeLabelList[i],vertexLabelList[getRandomNumber(1,7)],vertexLabelList[getRandomNumber(1,7)],getRandomNumber(1,200)));
     }
-    /*
-    **WIP**
-    var mapGraph = {
-        vertexCount: 0,
-        edgeCount: 0,
-    }
-    */
    function test(){
        // "It just works"~Todd Howard
         var test1 = createVertex("Test Vertex",69,69);
